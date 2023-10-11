@@ -5,18 +5,17 @@ pkgver=20170722
 pkgrel=2
 pkgdesc="A Japanese font for viewing Japanese ascii arts properly"
 arch=('any')
-url="https://osdn.net/users/utuhiro/pf/utuhiro/files/"
+url="https://github.com/utuhiro78/modified-fonts"
 license=('custom')
 depends=('fontconfig' 'xorg-mkfontscale')
-source=(https://osdn.net/users/utuhiro/pf/utuhiro/dl/monapo-${pkgver}.tar.bz2)
-md5sums=('f6bdac3e091923b6d726c4d0844ad110')
-b2sums=('1fcb1b0599e9268aa6e004bcf645be997adc340bfe4e192064354e64d830f7d231aa5919ff839dac4ca2f7f1e43a9e85e9aa43ea0153d47d59d658cecce2330e')
+source=(https://raw.githubusercontent.com/utuhiro78/modified-fonts/main/monapo-20170722.tar.xz)
+sha256sums=('f1cf49006f9ef3079e95b2808c8727727aa664006502c9b52fa268bbe901d3cd')
 
 package() {
-  cd ${srcdir}/monapo-${pkgver}
+	cd ${srcdir}/monapo-${pkgver}
 
-  install -D -m644 monapo.ttf ${pkgdir}/usr/share/fonts/TTF/monapo.ttf
+	install -D -m644 monapo.ttf ${pkgdir}/usr/share/fonts/TTF/monapo.ttf
 
-  install -D -m644 ipagp00303/IPA_Font_License_Agreement_v1.0.txt \
-          ${pkgdir}/usr/share/licenses/${pkgname}/COPYING_IPA.txt
+	install -D -m644 ipagp00303/IPA_Font_License_Agreement_v1.0.txt \
+		${pkgdir}/usr/share/licenses/${pkgname}/COPYING_IPA.txt
 }
